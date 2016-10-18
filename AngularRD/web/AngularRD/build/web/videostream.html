@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+         <script src="Js/videostream.js"></script>
+         <script>
+            
+              function  playVideo(){
+               //  var videoUrl = "/storage/emulated/0/Android/p1.mp4";
+              // var videoUrl="http://192.168.6.145:8080/ServletDemo/videostream";
+              var videoUrl="https://www.youtube.com/watch?v=gKBiIWY7FYw"
+               //var videoUrl="/storage/emulated/0/Teju/small.wmv";
+                //VideoPlayer.play(videoUrl);
+                 window.plugins.videoPlayer.play(videoUrl);
+            }
+         </script>
+    </head>
+    <body>
+         <input type="submit" value="PlayVideo" onclick="playVideo()">
+    </body>
+</html>

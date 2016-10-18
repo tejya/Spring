@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="report1">
+ 
+<head>
+  <title>Convert Byte Array into Audio file </title>
+</head>
+ 
+<body  ng-controller="reportCtrl1" >
+  
+  
+    <br/>
+
+   
+    <button ng-click="play()">Play</button>
+
+     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script src="Js/angular.js"></script>
+  <script src="Js/xyzaudio.js"></script>
+<
+    <object ng-show="file" data="{{file}}" type="audio/mp3" style="width: 100%; height: 400px;"></object>
+</body>
+ 
+</html>
+

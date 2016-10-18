@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Online Streaming </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="Js/jquery-min.js"></script>
+         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script>
+         function play(){
+             onDeviceReady();
+
+             console.log('function called');
+           document.addEventListener('deviceready', onDeviceReady, false);
+                          console.log('after function called');
+
+
+        }
+
+function onDeviceReady() {
+    try {
+            console.log('in device ready');
+    document.querySelector("#playMp3").addEventListener("touchend", playMP3, false);
+     console.log('after in device ready');
+    }catch(err)
+    {
+        console.log('sec...'+err);
+    }
+ 
+};
+ //var mp3URL=null;
+  var media=null;
+function playMP3() {
+    console.log('play mp3');
+    var mp3URL="http://192.168.6.145:8080/ServletDemo/Mp3"
+   // var mp3URL = "/storage/emulated/0/Android/journey.mp3";
+   //  var mp3URL='http://192.168.6.105:8080/DCBLMSMobile/webresources/AudioService/mp3play';
+    console.log('mp2 path++++  '+mp3URL);
+     media = new Media(mp3URL, onSuccess, mediaError);
+     console.log("before media");
+    media.play();
+     console.log("after media");
+}
+ function onSuccess() {
+            console.log("playAudio():Audio Success");
+             console.log("playAudio():Audio Success");
+        }
+
+function getMediaURL(s) {
+      console.log('play inh media mp3');
+    if(device.platform.toLowerCase() === "android") return "/www/" + s;
+    return s;
+}
+
+function mediaError(e) {
+    console.log('Media Error');
+    console.log(JSON.stringify(e));
+}
+        
+         function pauseAudio() {
+               
+            if (media) {
+                media.pause();
+            }
+        }
+
+        // Stop audio
+        // 
+        function stopAudio() {
+            
+            if (media) {
+                media.stop();
+            }
+           
+        }
+        
+        
+        </script>
+    </head>
+    <body>
+<!--        <button id="playMp3" onclick="play()">Play</button>-->
+        <input type="submit" value="Play" id="playMp3" onclick="playMP3()">
+        <input type="submit" value="Pause"  onclick="pauseAudio()"><br>
+          <input type="submit" value="Stop"  onclick="stopAudio()">
+          <br>
+          
+    </body>
+</html>

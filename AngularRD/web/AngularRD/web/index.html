@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html ng-app="audioapp">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <title>Hello World</title>
+        <script src="Js/angular.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script src="Js/audio.js"></script>
+    </head>
+    <body ng-controller="audioCtrl">
+        <div id="main" class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+            <div id="messages">
+                Loading Video...
+            </div>
+<!--            <video width="320px" height="240px" controls></video>-->
+           
+            <br>
+            <h1>Audio Demo</h1>
+            <input type="button" value="submit" ng-click="start()">
+            
+            <br>
+            <audio src="{{base64data}}" controls=""></audio>
+        </div>
+       
+<!--        <script type="text/javascript" src="js/index.js"></script>-->
+<!--        <script type="text/javascript">
+        // app.initialize();
+          // function start()
+          // {
+               alert('started')
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            // device APIs are available
+            //
+           function onDeviceReady() {
+                
+                console.log('Requesting file system');
+                alert('inside device ready');
+               
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+                  alert('inside device ready');
+      
+             }
+      
+         
+            
+   // }
+    
+       function gotFS(fileSystem) {
+            alert('started got fs')
+                fileSystem.root.getDirectory("vids", {create: true}, gotDir);
+            }
+
+            function gotDir(dirEntry) {
+                 alert('calling  got file');
+                dirEntry.getFile("audio.mp4", {create: true, exclusive: false}, gotFile);
+            }
+
+            function gotFile(fileEntry) {
+                var localPath = fileEntry.fullPath;
+                var localUrl = fileEntry.toURL();
+               alert('local path--'+localPath);
+                 alert('local url--'+localUrl);
+               
+                console.log('Loaded local path: ' + localPath);
+                console.log('Loaded local url: ' + localUrl);
+                 var leadid=123;
+                var fileTransfer = new FileTransfer();
+                var uri = encodeURI('http://192.168.6.76:8080/rest/downloadAudioFile/upload');
+                console.log('Downloading ' + uri + ' to ' + localPath);
+              alert('server ulr'+uri);
+                fileTransfer.download(
+                    uri,
+                    localUrl,
+                    function(entry) {
+                        alert('inside-- entry after success::'+entry.toURL);
+                        console.log('download complete (path): ' + entry.fullPath);
+                        console.log('download complete (url): ' + entry.toURL());
+                        console.log('download complete (native): ' + entry.toNativeURL());
+                        document.getElementById('messages').innerHTML = 
+                        'Downloaded audio path: ' + entry.fullPath + '<br />'
+                        + 'Downloaded audio url: ' + entry.toURL() + '<br />'
+                        + 'Downloaded audio Native url: ' + entry.toNativeURL() + '<br />';
+                        var videoNode = document.querySelector('audio');
+                        videoNode.src = entry.toNativeURL();
+                    },
+                    function(error) {
+                        alert('inside-- entry after error'+error.source);
+                        console.log('download error source ' + error.source);
+                        console.log('download error target ' + error.target);
+                    }
+                );
+            }
+
+            function fail(error) {
+                console.log('Error creating file [' + error.name + ']: ' + error.message);
+            }
+        </script>-->
+    </body>
+</html>

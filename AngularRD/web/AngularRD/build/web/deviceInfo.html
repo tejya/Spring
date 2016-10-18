@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Device Information Example</title>
+    <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title"charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        // Cordova is loading.....
+        document.addEventListener("deviceready", onDeviceReady, false);
+        // Now the Cordova is ready       
+        function onDeviceReady()
+         {
+            var element = document.getElementById('deviceProperties');
+            element.innerHTML = 'Device Name: ' + device.name + '<br />' +'<br/>'+
+                                'Device Cordova: ' + device.cordova + '<br />' + '<br/>' +
+                                'Device Platform: ' + device.platform + '<br />' + '<br/>' +
+                                'Device UUID: ' + device.uuid + '<br />' + '<br/>' +
+                                'Device Version: ' + device.version + '<br />' + '<br/>'+
+                                'Device Version: ' + device.model + '<br />' + '<br/>';
+         }  
+    </script>
+</head>
+<body>
+    <p id="deviceProperties">Loading device properties...</p>
+</body>
+</html>

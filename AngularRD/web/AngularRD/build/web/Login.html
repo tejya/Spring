@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="loginApp">
+    <head>
+        <title>Audio Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="Js/angular.js"></script>
+        <script src="Js/app.js"></script>
+    </head>
+    <body ng-controller="loginCtrl">
+        <label>Mobile No.</label>
+        <input type="tel" maxlength="10" name="mbno" ng-model="obj.mbno">
+        <br>
+        
+        <label>password</label>
+        <input type="password" name="pass" ng-model="obj.pass" ><br>
+        <input type="submit" value="Submit" ng-click="loginsubmit()" >
+    </body>
+</html>

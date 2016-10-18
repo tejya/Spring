@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <title>Video Player Example</title>
+
+             <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+             <script src="Js/stream.js"></script>
+        <script>
+          function playVideo() {
+               var videoUrl='http://192.168.6.144:8080/DCBLMSMobile/webresources/AudioService/videoplay';
+              // Play a video with callbacks
+           //  var videoUrl="http://192.168.6.145:8080/ServletDemo/videostream";
+           //   var videoUrl = "/storage/emulated/0/Android/p1.mp4";
+        //  var videoUrl="/storage/emulated/0/Teju/small.mp4";
+           //  var videoUrl="https://www.youtube.com/watch?v=gKBiIWY7FYw";
+              console.log('local url      :'+videoUrl);
+              var options = {
+                successCallback: function() {
+                  console.log("Video was closed without error.");
+                },
+                errorCallback: function(errMsg) {
+                  console.log("Error! " + errMsg);
+                }
+              };
+              try
+              {
+               window.plugins.streamingMedia.playVideo(videoUrl,options);
+             }
+             catch(Error)
+             {
+                 console.log("error from server or local"+Error);
+             }
+             
+          }
+          function playAudio() {
+              // Play a video with callbacks
+            var audioUrl="http://192.168.6.145:8080/ServletDemo/Mp3";
+          //  var audioUrl = "/storage/emulated/0/Android/journey.mp3";
+              var options = {
+                successCallback: function() {
+                  console.log("Video was closed without error.");
+                },
+                errorCallback: function(errMsg) {
+                  console.log("Error! " + errMsg);
+                }
+              };
+              // window.plugins.streamingMedia.playVideo(videoUrl, options);
+              window.plugins.streamingMedia.playAudio(audioUrl, options);
+          }
+        </script>
+
+    </head>
+
+
+    <body>
+
+        <h1>Video Player Example</h1>
+
+      
+        <button type="button" onclick="playVideo();">Play Video</button>
+        <br>
+        <button type="button" onclick="playAudio();">Play Audio</button>
+        
+        
+
+        Video URL: <input type="url" size="60"  id="vidUrl"/><br/>
+        <button type="button" onclick="playVideo();">Play Video</button>
+        
+    </body>
+
+</html>
+
+

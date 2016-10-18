@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        function gotPic(data) {
+
+window.resolveLocalFileSystemURI(data, function(entry) {
+
+var reader = new FileReader();
+
+reader.onloadend = function(evt) {
+    var byteArray = new Uint8Array(evt.target.result);
+    var output = new Array( byteArray.length );
+    var i = 0;
+    var n = output.length;
+    while( i < n ) {
+        output[i] = byteArray[i];
+        i++;
+    }                
+    var parseFile = new Parse.File("mypic.jpg", output);
+
+    parseFile.save().then(function(ob) {
+            navigator.notification.alert("Got it!", null);
+            console.log(JSON.stringify(ob));
+        }, function(error) {
+            console.log("Error");
+            console.log(error);
+        });
+
+}
+
+reader.onerror = function(evt) {
+      console.log('read error');
+      console.log(JSON.stringify(evt));
+  }
+
+entry.file(function(s) {
+    reader.readAsArrayBuffer(s);
+}, function(e) {
+    console.log('ee');
+});
+
+});
+}
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <input type="button" value="submit" onclick="gotPic()">
+    </body>
+</html>
