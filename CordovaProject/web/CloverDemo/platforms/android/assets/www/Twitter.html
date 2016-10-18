@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <title>Twitter Search Application</title>
+    </head>
+    <body>
+        <div class="app">
+            <!--            <div>
+                            <button id="facebook_login" onClick="facebook.onFacebookLogin();">Facebook Login</button>
+                            <button id="facebook_logout" onClick="facebook.onFacebookLogout();">Facebook Logout</button>
+                            <button id="facebook_logout" onClick="app.getInfo();">Get info</button>
+                            <button id="facebook_logout" onClick="facebook.onFacebookPostFeed({message: 'jwalaaa test'});">Publishhhhh</button>
+                        </div>-->
+            <div>
+                <button id="twitter_login" onClick="twitter.login();">Twitter Login</button><br>&nbsp;<br>&nbsp;
+                <button id="twitter_logout" onClick="twitter.logout();">Twitter Logout</button><br><br>&nbsp;
+                <input placeholder="Twit......" type='text' name='twittext' value='' id='twitid'  maxlength="50" /><br><br><br>&nbsp;
+
+                <!--                <button id="twitter_tweet" onClick="twitter.tweet({'status':'000000', 'trim_user': 'true'});">Tweet</button>-->
+                <button id="twitter_tweet" onClick="twitter.tweet();">Tweet</button>
+                <button id="twitter_tweet" onClick="twitter.Profile();">profile</button>
+                <button id="twitter_tweet" onClick="twitter.Prof();">profile......</button>
+            </div>
+            <div id="severdata">
+                
+            </div>
+            <div id="severdata1">
+                
+            </div>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="jwala01278" data-size="large">Tweet</a>
+
+
+            <!--            <script>!function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, 'script', 'twitter-wjs');</script>-->
+
+            <!--timeline...-->
+
+            <!--            <a class="twitter-timeline" href="https://twitter.com/jwala01278" data-widget-id="738701998988529664">Tweets by user</a>
+                        <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");</script>-->
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/oauth.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/facebook.js"></script>
+        <script type="text/javascript" src="js/twitter.js"></script>
+        <script type="text/javascript" src="js/app1.js"></script>
+        <script type="text/javascript">
+                    app.initialize();
+        </script>
+    </body>
+</html>

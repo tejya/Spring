@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <h2>Sample login</h2>
+
+        <div id="deviceready">
+
+            <div class="received">
+                <!--<a onclick="window.location = 'tests/testSocialGap.html';">Run unit tests for SocialGap</a>-->
+
+                <br>&nbsp;<br>
+
+                <!--<a onclick="SocialGap.Facebook_PerformLogon(app.logonSuccess, app.logonFailure);">Facebook</a> <br>-->
+                <!--<a onclick="window.location = 'tests/testFB.html';">Run unit tests for FB extension</a>-->
+
+                <br>&nbsp;<br>
+
+                <a onclick="SocialGap.Linkedin_PerformLogon(app.logonSuccess, app.logonFailure);">LinkedIn</a><br>  <br>&nbsp;<br>
+                <a onclick="app.Share()">share..</a><br>
+                <!--<a onclick="window.location = 'tests/testLinkedin.html';">Run unit tests for Linkedin extension</a>-->
+            </div>
+
+            <div class="listening blink">
+                loading...
+            </div>
+        </div>
+        <!--=======share--> 
+  <!--      
+        <script type="text/javascript" src="in.js">
+            
+        </script><script type="in/share" data-counter="top"></script>
+-->.....
+        <!--<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>-->
+
+
+        <!--        <script src="in.js" type="text/javascript"> lang: en_US</script>
+                <script type="IN/Share" data-counter="top"></script>-->
+
+        <script type="text/javascript" src="phonegap.js"></script>
+         <script type="text/javascript" src="//platform.linkedin.com/in.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/linked.js"></script>
+        <script type="text/javascript" src="js/modernizr.js"></script>
+        <script type="text/javascript" src="js/socialGap.js"></script>
+        <script type="text/javascript" src="js/socialGap_facebook.js"></script>
+        <script type="text/javascript" src="js/socialGap_linkedin.js"></script>
+        <script type="text/javascript">
+                    app.initialize();
+        </script>
+    </body>
+</html>

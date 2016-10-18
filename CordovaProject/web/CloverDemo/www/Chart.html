@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Load the AJAX API-->
+        <script type="text/javascript" src="loader.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+
+        <script type="text/javascript">
+//debugger;
+            // Load the Visualization API and the piechart package.
+            google.charts.load('current', {'packages': ['corechart']});
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart);
+//            $(document).ready(function (e) {
+//                alert('inready');
+//                $.getJSON("DataTable.json", function (result) {
+//                    alert('jsonn...'+JSON.parse(DataTable));
+//                });
+//            });
+            var jsonData;
+            function drawChart() {
+                var local = "json/DataTable.json";
+
+                $.ajax({
+                    url: local,
+                    type: "POST",
+                    async: false,
+                    success: function (Data) {
+                        alert("json" + Data);
+                        jsonData = Data;
+                    }
+                });
+                alert('json data.....' + JSON.stringify(jsonData));
+
+//                    var local = "json/DataTable.json";
+//                    
+//                    var jsonData = $.ajax({
+//                    url: "local",
+//                            dataType: "json",
+//                            async: false
+//
+//
+//                    }).responseText;
+                // Create our data table out of JSON data loaded from server.
+                var data = new google.visualization.DataTable(jsonData);
+                // Instantiate and draw our chart, passing in some options.
+                // line.....
+                var linechart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                linechart.draw(data, {width: 400, height: 240});
+                //bar....
+                var barchart = new google.visualization.BarChart(document.getElementById('chart_div1'));
+                barchart.draw(data, {width: 400, height: 240});
+//                graph
+                var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+                chart.draw(data, {width: 400, height: 240});
+				
+				var chart = new google.visualization.PieChart(document.getElementById('chart_div3'));
+                chart.draw(data, {width: 400, height: 240});
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div"></div> <br>
+		<div id="chart_div1"></div> <br> 
+		<div id="chart_div2"></div> <br> 
+		<div id="chart_div3"></div> <br>
+    </body>
+</html>
